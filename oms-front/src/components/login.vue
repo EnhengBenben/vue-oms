@@ -1,47 +1,78 @@
 <template>
-  <div class="loginColumns animated fadeInDown" style="height: 100%;width: 100%">
-    <div class="col-md-8 col-md-offset-2">
-      <div class="ibox-content">
-        <form class="m-t" role="form" :submit="login()">
-          <div class="form-group">
-            <input type="text" v-model="account.name" class="form-control" placeholder="请输入用户名" required="">
-          </div>
-          <div class="form-group">
-            <input type="password" v-model="account.pwd" class="form-control" placeholder="请输入密码" required="">
-          </div>
-          <p v-if="error" class="help-block" style="color: #FF3f6f">{{errorMeg}}</p>
-          <button type="submit" class="btn btn-primary block full-width m-b">登录</button>
-        </form>
-        <p class="m-t text-center">
-          <small>oms后台管理系统 &copy; {{year}} 上海华点云生物科技有限公司</small>
-        </p>
+  <div class="ibox-content">
+    <form class="m-t" role="form">
+      <div class="form-group" style="margin-bottom: 10px">
+        <el-input v-model="account.name" placeholder="请输入用户名" aria-required="true"></el-input>
       </div>
-    </div>
+      <div class="form-group">
+        <el-input type="password" v-model="account.pwd" placeholder="请输入密码" aria-required="true"></el-input>
+      </div>
+      <p v-if="errorMsg" class="help-block" style="color: #FF3f6f">{{errorMsg}}</p>
+      <el-button style="width: 100%;margin-top: 10px" type="primary" @click="login()">登录</el-button>
+    </form>
+    <p class="m-t text-center">
+      <small>OMS后台管理系统 &copy; {{year}}</small>
+    </p>
   </div>
 </template>
 
 <script>
-export default {
-  name: 'Login',
-  data(){
-    return{
-      account: {
-        name: '',
-        pwd: '',
-      },
-      year: '2018',
-      errorMsg: '123',
-      error: true
-    }
-  },
-  methods: {
-    login: function () {
-      console.log(this.account);
+  import {AuthService} from '../apis/AuthServices'
+
+  export default {
+    name: 'Login',
+    data () {
+      return {
+        account: {
+          name: '',
+          pwd: ''
+        },
+        errorMsg: '',
+        year: '2018'
+      }
+    },
+    methods: {
+      login: function () {
+        if(this.account.name && this.account.pwd) {
+          var that = this
+          AuthService
+            .login(this.account)
+            .then(function (res) {
+              window.localStorage.jtw = res.data.token
+              window.localStorage.user = res.data.user
+            }, function (conf) {
+              that.errorMsg = conf.error
+            })
+        }else {
+          this.errorMsg = '请输入用户名和密码'
+        }
+        // .login({username: 'omstest', pwd: 'celloud'})
+      }
     }
   }
-}
 </script>
 
-<style lang="less" scoped>
-  @import "../styles/style";
+<style lang="scss">
+  body {
+    background: #2f4050;
+  }
+  .ibox-content{
+    position:absolute;
+    left:50%;
+    top: 50%;
+    width: 500px;
+    height: 210px;
+    margin-left: -265px;
+    margin-top: -125px;
+    background-color: #FFF;
+    padding: 20px 15px;
+    border-radius: 5px;
+  }
+  .help-block{
+    color: rgb(255, 63, 111);
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: left;
+    font-size: 12px;
+  }
 </style>

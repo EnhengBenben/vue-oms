@@ -38,17 +38,18 @@ module.exports = {
       '@': resolve('src'),
     }
   },
+  //createLintingRule()
   module: {
     rules: [
-      ...(config.dev.useEslint ? [createLintingRule()] : []),
+      ...(config.dev.useEslint ? [] : []),
       {
         test: /\.vue$/,
         loader: 'vue-loader',
         options: vueLoaderConfig
       },
       {
-        test: /\.less$/,
-        loader: "style-loader!css-loader!less-loader",
+        test: /\.scss$/,
+        loaders: ["style", "css", "sass"]
       },
       {
         test: /\.js$/,
