@@ -18,7 +18,6 @@
 
 <script>
   import {AuthService} from '../apis/AuthServices'
-
   export default {
     name: 'Login',
     data () {
@@ -40,6 +39,7 @@
             .then(function (res) {
               window.localStorage.jtw = res.data.token
               window.localStorage.user = res.data.user
+              that.$router.push('/hello')
             }, function (conf) {
               that.errorMsg = conf.error
             })
