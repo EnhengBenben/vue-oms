@@ -37,7 +37,7 @@
           AuthService
             .login(this.account)
             .then(function (res) {
-              window.localStorage.jtw = res.data.token
+              window.localStorage.jwt = res.data.token
               window.localStorage.user = res.data.user
               that.$router.push('/hello')
             }, function (conf) {
