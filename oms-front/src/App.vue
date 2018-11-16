@@ -10,7 +10,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -24,9 +24,11 @@ export default {
   }
   html,body{
     height: 100%;
+    background-color: #2f4050;
     min-height: 100%;
   }
   ul,li{
     list-style: none;
   }
+  @import "styles/style.scss";
 </style>

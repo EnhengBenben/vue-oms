@@ -1,11 +1,11 @@
 .content-container{
   width: 100%;
-  background: #FFF;
   min-height: 100%;
   position: relative;
   height: 100%;
   .header-box{
     height: 68px;
+    background: #FFF;
     border-bottom: 1px solid #dcdcdc;
   }
   .sideBar{
@@ -13,40 +13,6 @@
     background: #2f4050;
     min-height: calc(100% - 68px);
     float: left;
-    .metismenu{
-      margin-bottom: 0;
-      padding-left: 0;
-      list-style: none;
-      li{
-        a{
-          font-weight: 500;
-          padding: 7px 10px;
-          padding-left: 52px;
-          display: block;
-          color: #a7b1c2;
-          cursor: pointer;
-          //transition: background-color 0.3s linear, color 0.3s linear;
-          &:hover{
-            color: #1dd2af;
-          }
-        }
-        a.router-link-active{
-          color: #1dd2af;
-        }
-        ul{
-          display: none;
-          padding-left: 20px;
-        }
-      }
-      li.menu1-list.active{
-        background-color: #293846;
-        border-left: 4px solid #1dd2af;
-        width: 196px;
-        ul{
-          display: block;
-        }
-      }
-    }
 
   }
   .content-body{
@@ -55,8 +21,14 @@
     position: absolute;
     padding: 20px 15px;
     background: #f0f0f0;
+    min-height: calc(100% - 110px);
   }
   .content-footer{
 
   }
+}
+.el-pagination{
+  margin-top: 10px;
+  background: #FFF;
+  padding: 10px;
 }

@@ -39,7 +39,7 @@
             .then(function (res) {
               window.localStorage.jwt = res.data.token
               window.localStorage.user = res.data.user
-              that.$router.push('/hello')
+              that.$router.push('/app/report')
             }, function (conf) {
               that.errorMsg = conf.error
             })
@@ -53,9 +53,6 @@
 </script>
 
 <style lang="scss">
-  body {
-    background: #2f4050;
-  }
   .ibox-content{
     position:absolute;
     left:50%;

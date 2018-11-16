@@ -69,8 +69,8 @@
       },
       getLists(pageNum,pageSize){
         let params = {}
-        params.pageNum = pageNum || 1
-        params.pageSize = pageSize || null
+        params.pagenum = pageNum || 1
+        params.pagesize = pageSize || null
         params.condition = this.keyword || null
         ReportService
           .list(params)

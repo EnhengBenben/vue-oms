@@ -7,7 +7,7 @@ Vue.use(Router)
 export default new Router({
   routes: [
     {
-      path: '/hello',
+      path: '/app',
       name: 'HelloWorld',
       // component: () => import('@/views/login'),
       component: function (resolve) {
