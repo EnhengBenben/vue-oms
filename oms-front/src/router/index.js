@@ -17,7 +17,13 @@ export default new Router({
         path: 'application',
         name: 'Application',
         component: function (resolve) {
-          require(['../components/application.vue'], resolve)
+          require(['../components/application/application.vue'], resolve)
+        }
+      }, {
+        path: 'application/edit',
+        name: 'ApplicationEdit',
+        component: function (resolve) {
+          require(['../components/application/application_edit.vue'], resolve)
         }
       }, {
         path: 'report',

@@ -30,5 +30,12 @@ export default {
   ul,li{
     list-style: none;
   }
+  a{
+    color: #1dd2af;
+    cursor: pointer;
+  }
+  a:hover{
+    text-decoration: underline;
+  }
   @import "styles/style.scss";
 </style>

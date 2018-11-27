@@ -21,6 +21,7 @@
     position: absolute;
     padding: 20px 15px;
     background: #f0f0f0;
+    height: calc(100% - 110px);
     min-height: calc(100% - 110px);
   }
   .content-footer{
@@ -31,4 +32,7 @@
   margin-top: 10px;
   background: #FFF;
   padding: 10px;
+}
+.pull-right{
+  float: right;
 }
